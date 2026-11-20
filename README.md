@@ -5,7 +5,7 @@
 
 [![License: AGPL v3](https://img.shields.io/badge/Code_License-AGPL_3.0-0f766e.svg)](./LICENSE)
 [![Content: CC BY-NC-SA 4.0](https://img.shields.io/badge/Content_%26_AAC-CC_BY--NC--SA_4.0-d97706.svg)](./LICENSE-CONTENT.md)
-[![Open Stack](https://img.shields.io/badge/Stack-100%25_Open_Source-0284c7.svg)](#ma-trận-thay-thế-hoàn-toàn-các-dịch-vụ-đóng-trung-quốc)
+[![Open Stack](https://img.shields.io/badge/Stack-100%25_Open_Source-0284c7.svg)](#kiến-trúc-monorepo)
 [![Status: Research Prototype](https://img.shields.io/badge/Status-Research_Prototype-b91c1c.svg)](#hạn-chế-đã-biết-known-limitations)
 
 > [!WARNING]
@@ -45,20 +45,6 @@ openspectrum-vn/
 ├── LICENSE-CONTENT.md        # CC BY-NC-SA 4.0 cho học liệu + ghi công biểu tượng ARASAAC
 └── CITATION.cff              # Thông tin trích dẫn học thuật
 ```
-
----
-
-## Ma Trận Thay Thế Hoàn Toàn Các Dịch Vụ Đóng Trung Quốc
-
-| Thành phần cũ (Bản tiếng Trung) | Giải pháp Mở trong OpenSpectrum-VN |
-| :--- | :--- |
-| `appmiaoda.com` & `miaoda-react-devkit` | **PostgreSQL 16 + `pgvector` + Hono TypeScript API + React/Vite chuẩn mở** |
-| `Baidu Face V3` & `Aliyun Facebody` (chấm cảm xúc mặt trẻ trên cloud) | **Loại bỏ hoàn toàn chấm cảm xúc khuôn mặt** (tuân thủ khoa học thần kinh Barrett 2019 & EU AI Act) |
-| `OpenMMLab` (`openmim` / `mmcv` / `mmpose`) | **`@mediapipe/tasks-vision` (WebAssembly/WebGPU)** chạy 100% trên trình duyệt với chế độ Khung xương Ẩn danh |
-| `Baidu Speech Pro` (ASR tiếng Trung) | **`vinai/PhoWhisper`** (`faster-whisper` local) + Web Speech Recognition `vi-VN` |
-| `Baidu TTS` & `MiniMax TTS` | **`Piper TTS` (`vi_VN` ONNX offline)** + Web Speech Synthesis `vi-VN` tốc độ êm dịu `0.85x` |
-| `MiniMax-M2.5` / `DeepSeek` qua gateway đóng | **Adapter AI Mở (`Ollama` local mặc định với `gemma3:4b`)** + hỗ trợ cắm `Google Gemini` / `OpenAI` qua `.env` + **Mẫu lâm sàng tất định chạy Offline 100%** |
-| `Agnes Image API` | **Kho biểu tượng AAC mở quốc tế `ARASAAC` (CC BY-NC-SA 4.0)** Việt hóa theo mã màu Fitzgerald |
 
 ---
 
