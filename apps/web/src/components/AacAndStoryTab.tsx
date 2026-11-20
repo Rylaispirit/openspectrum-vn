@@ -129,8 +129,8 @@ export function AacAndStoryTab() {
               Bảng Giao Tiếp Tăng Cường &amp; Thay Thế (AAC Tiếng Việt — Biểu tượng Mở ARASAAC)
             </h2>
             <p className="text-xs text-slate-600">
-              Thay thế hoàn toàn Agnes Image API đóng bằng kho biểu tượng giáo dục đặc biệt mở chuẩn quốc tế ARASAAC (CC
-              BY-NC-SA 4.0) + giọng đọc Tiếng Việt êm dịu (0.85x).
+              Kho biểu tượng giáo dục đặc biệt mở chuẩn quốc tế ARASAAC (CC BY-NC-SA 4.0) + giọng đọc Tiếng Việt êm dịu
+              (0.85x).
             </p>
             <p className="text-[11px] text-slate-500">
               Tác giả biểu tượng: Sergio Palao • Nguồn: ARASAAC (arasaac.org) • Giấy phép: CC BY-NC-SA • Chủ sở hữu:

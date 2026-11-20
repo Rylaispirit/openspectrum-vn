@@ -1,5 +1,5 @@
 """
-Adapter Giọng nói Tiếng Việt Mã nguồn mở (Thay thế hoàn toàn Baidu ASR/TTS & MiniMax TTS):
+Adapter Giọng nói Tiếng Việt Mã nguồn mở:
 - ASR: Hỗ trợ `faster-whisper` với mô hình mở `vinai/PhoWhisper-small` / `PhoWhisper-medium` chạy cục bộ.
 - TTS: Hỗ trợ `piper-tts` (`vi_VN-vais1000-medium`) chạy ONNX offline tốc độ chậm thân thiện giác quan;
   khi chưa cài đặt nhị phân local, trả về cấu hình chuẩn để Web UI tự động dùng Web Speech API (`vi-VN`).
@@ -36,7 +36,6 @@ def get_speech_capabilities() -> dict:
             "provider": "vinai/PhoWhisper (faster-whisper local)" if (enable_asr and faster_whisper_installed) else "browser-web-speech-vi-VN",
             "local_ready": enable_asr and faster_whisper_installed,
             "configured_model": phowhisper_model,
-            "replaces_legacy": "Baidu Speech Pro (vop.baidu.com)",
         },
         "tts": {
             "provider": "piper-tts-onnx-vi_VN" if (enable_tts and piper_ready) else "browser-speech-synthesis-vi-VN",
@@ -47,7 +46,6 @@ def get_speech_capabilities() -> dict:
                 "pitch": 1.0,
                 "volume": 0.85,
             },
-            "replaces_legacy": "Baidu TTS (tsn.baidu.com) & MiniMax TTS",
         },
     }
 

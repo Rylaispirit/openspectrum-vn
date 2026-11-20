@@ -205,7 +205,7 @@ export function PoseCodingTab() {
               Quan Sát Tư Thế Khung Xương Ẩn Danh Trên Thiết Bị (MediaPipe WebAssembly — Zero Cloud Upload)
             </h2>
             <p className="text-xs text-slate-600">
-              Thay thế hoàn toàn Baidu Face, Aliyun Facebody &amp; OpenMMLab `mmcv`. Video xử lý 100% trong trình duyệt
+              Video xử lý 100% trong trình duyệt
               của bạn, không gửi hình ảnh mặt trẻ lên bất kỳ máy chủ nào và <strong>tuyệt đối không suy diễn cảm xúc</strong>.
             </p>
           </div>

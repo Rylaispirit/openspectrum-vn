@@ -1,6 +1,5 @@
 /**
  * CỔNG KẾT NỐI MÔ HÌNH NGÔN NGỮ LỚN MỞ (OPEN MULTI-MODEL ADAPTER)
- * Thay thế hoàn toàn `appmiaoda.com`, `MiniMax-M2.5` và `DeepSeek`.
  *
  * Chế độ mặc định:
  * - `ollama` (chạy cục bộ miễn phí tại http://localhost:11434/v1, mặc định `gemma3:4b`)

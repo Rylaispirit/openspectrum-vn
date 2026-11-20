@@ -1,6 +1,5 @@
 /**
  * Kho Biểu tượng Giao tiếp Tăng cường & Thay thế (AAC) Mã nguồn mở Tiếng Việt
- * Thay thế hoàn toàn dịch vụ đóng `Agnes Image API` của bản tiếng Trung cũ.
  *
  * Nguồn biểu tượng chuẩn lâm sàng: ARASAAC (https://arasaac.org — CC BY-NC-SA 4.0)
  * Thiết kế phẳng, tương phản rõ, không gây quá tải giác quan cho trẻ tự kỷ.

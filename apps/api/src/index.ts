@@ -51,7 +51,6 @@ app.get('/api/health', async (c) => {
     status: 'ok',
     platform: 'OpenSpectrum-VN — Open Science Autism Platform',
     license: 'AGPL-3.0-or-later + CC-BY-NC-SA-4.0',
-    zeroChineseDependencies: true,
     storage: getStorageStatus(),
     aiAdapter: getActiveProviderInfo(),
     pythonResearchEngine: {
@@ -78,7 +77,6 @@ app.post('/api/safety/check', async (c) => {
 app.get('/api/aac/core', (c) => {
   return c.json({
     source: 'ARASAAC Open Pictograms (CC BY-NC-SA 4.0)',
-    replacesLegacy: 'Agnes Image API',
     cards: CORE_VIETNAMESE_AAC_CARDS,
   });
 });
