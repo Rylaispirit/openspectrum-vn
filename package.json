@@ -1,0 +1,18 @@
+{
+  "name": "openspectrum-vn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenSpectrum-VN — Nền tảng Khoa học Mở & Hỗ trợ Đa dạng Thần kinh cho Trẻ Tự kỷ tại Việt Nam",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "dev:api": "pnpm --filter @openspectrum-vn/api dev",
+    "dev:web": "pnpm --filter @openspectrum-vn/web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

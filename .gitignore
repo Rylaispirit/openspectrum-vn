@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment & local secrets (NEVER commit API keys or PII)
+.env
+.env.local
+.env.*.local
+
+# Local runtime data
+apps/api/data/local-db.json
+*.onnx
+*.onnx.json
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+
+# Local AI/IDE tool settings
+.kiro/
+.claude/

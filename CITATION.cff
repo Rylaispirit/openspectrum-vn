@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it as below."
+title: "OpenSpectrum-VN: An open-source platform for neurodiversity-affirming autism support and single-case experimental design research in Vietnam"
+type: software
+authors:
+  - name: "OpenSpectrum-VN Contributors"
+version: 0.1.0
+date-released: 2026-11-20
+license: AGPL-3.0-or-later
+repository-code: "https://github.com/Rylaispirit/openspectrum-vn"
+abstract: >-
+  An open-source monorepo for Vietnamese families, inclusive-education teachers
+  and researchers: a Vietnamese AAC board (ARASAAC pictograms), A-B-C functional
+  behaviour logs, draft IEPs aligned with Circular 03/2018/TT-BGDDT, deterministic
+  single-case effect sizes (NAP, Tau-U, PEM, PND, PAND, IRD, BC-SMD), inter-observer
+  agreement (Cohen's kappa), on-device pose coding and FAIR de-identified export.
+  Research prototype; not a medical device.
+keywords:
+  - autism
+  - neurodiversity
+  - augmentative and alternative communication
+  - single-case experimental design
+  - Tau-U
+  - inter-observer agreement
+  - FAIR data
+  - Vietnam

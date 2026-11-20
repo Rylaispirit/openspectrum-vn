@@ -1,0 +1,28 @@
+[project]
+name = "openspectrum-vn-research-engine"
+version = "0.1.0"
+description = "Lõi Nghiên cứu Khoa học Mở (SCED, IOA, Khử định danh FAIR) & Giọng nói Tiếng Việt Mở cho OpenSpectrum-VN"
+requires-python = ">=3.11"
+license = { text = "AGPL-3.0-or-later" }
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.9.0",
+    "numpy>=2.0.0",
+    "scipy>=1.14.0",
+    "python-multipart>=0.0.12",
+]
+
+[project.optional-dependencies]
+speech = [
+    "faster-whisper>=1.1.0",
+    "piper-tts>=1.2.0",
+]
+dev = [
+    "pytest>=8.3.0",
+    "httpx>=0.27.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,81 @@
+name: openspectrum-vn
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: openspectrum-vn-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: openspectrum
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-openspectrum_dev_pw}
+      POSTGRES_DB: openspectrum_vn
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./apps/api/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openspectrum -d openspectrum_vn"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  research-engine:
+    build:
+      context: ./services/research-engine
+      dockerfile: Dockerfile
+    container_name: openspectrum-vn-research
+    restart: unless-stopped
+    environment:
+      DEIDENTIFICATION_SALT: ${DEIDENTIFICATION_SALT:-openspectrum-vn-open-science-salt}
+      ENABLE_LOCAL_ASR: ${ENABLE_LOCAL_ASR:-false}
+      PHOWHISPER_MODEL: ${PHOWHISPER_MODEL:-vinai/PhoWhisper-small}
+      ENABLE_LOCAL_TTS: ${ENABLE_LOCAL_TTS:-false}
+      PIPER_MODEL_PATH: ${PIPER_MODEL_PATH:-}
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    container_name: openspectrum-vn-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      research-engine:
+        condition: service_healthy
+    environment:
+      API_PORT: 4000
+      DATABASE_URL: postgresql://openspectrum:${POSTGRES_PASSWORD:-openspectrum_dev_pw}@postgres:5432/openspectrum_vn
+      RESEARCH_ENGINE_URL: http://research-engine:8000
+      AI_PROVIDER: ${AI_PROVIDER:-ollama}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434/v1}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma3:4b}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+    ports:
+      - "4000:4000"
+
+  web:
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    container_name: openspectrum-vn-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
+
+volumes:
+  postgres_data:
